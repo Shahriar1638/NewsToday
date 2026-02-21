@@ -16,7 +16,7 @@ mongoose.connect(uri)
   .then(() => {
     console.log("Pinged your deployment. You successfully connected to MongoDB via Mongoose!");
     // startCronJob(); 
-    // startCronJob();
+    startCronJob();
   })
   .catch((err) => {
     console.error("Failed to connect to MongoDB", err);
