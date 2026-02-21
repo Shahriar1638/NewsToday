@@ -1,9 +1,14 @@
-import React from "react";
 import { FaFilter, FaRedo, FaSearch } from "react-icons/fa";
 
 const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
-  // Common preset options for NewsData.io (You can expand these later)
-  const languages = ["en", "es", "fr", "de", "it", "zh"];
+  const languages = [
+    "english",
+    "spanish",
+    "french",
+    "german",
+    "italian",
+    "chinese",
+  ];
   const countries = ["us", "gb", "ca", "au", "in", "fr", "de"];
   const categories = [
     "Business",
@@ -15,8 +20,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
     "Politics",
   ];
   const datatypes = ["News", "Blog", "Press Release", "Podcast"];
-
-  // Helper to update a category in the multi-select array
   const handleCategoryToggle = (category) => {
     if (filters.category.includes(category)) {
       setFilters({
@@ -56,7 +59,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
       </div>
 
       <div className="space-y-6">
-        {/* 1. Date Range Filter */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Date Range
@@ -84,7 +86,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
           </div>
         </div>
 
-        {/* 2. Author Filter */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Author
@@ -105,7 +106,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
           </div>
         </div>
 
-        {/* 3 & 4. Language and Country */}
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -147,7 +147,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
           </div>
         </div>
 
-        {/* 5. Category (Multi-Select toggles) */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-3">
             Categories
@@ -172,7 +171,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
           </div>
         </div>
 
-        {/* 6. Content Type */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Content Type
@@ -192,8 +190,6 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
             ))}
           </select>
         </div>
-
-        {/* Apply Filters Button */}
         <button
           onClick={applyFilters}
           className="w-full bg-gray-900 hover:bg-black text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 mt-4"

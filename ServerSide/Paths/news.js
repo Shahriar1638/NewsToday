@@ -6,45 +6,41 @@ router.get('/', async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const requestedLimit = parseInt(req.query.limit) || 20;
-    const limit = Math.min(requestedLimit, 52); // Max 52 per page requested by user
+    const limit = Math.min(requestedLimit, 52);
     const skip = (page - 1) * limit;
 
-    // Expand empty filter object to handle all the category/date filters
     const queryFilter = {}; 
 
-    // 1. Date Range Filter
     if (req.query.startDate || req.query.endDate) {
       queryFilter.pubDate = {};
-      // Append operators if they exist in the incoming query
       if (req.query.startDate) queryFilter.pubDate.$gte = new Date(req.query.startDate);
       if (req.query.endDate) queryFilter.pubDate.$lte = new Date(req.query.endDate);
     }
 
-    // 2. Author / Creator Filter (Regex so its case-insensitive and partial match)
     if (req.query.author) {
       queryFilter.creator = { $regex: req.query.author, $options: 'i' };
     }
 
-    // 3. Language Filter (Exact string match)
     if (req.query.language) {
-      queryFilter.language = req.query.language;
+      queryFilter.language = req.query.language.toLowerCase();
     }
 
-    // 4. Country Filter (Checks if country exists inside the country array)
     if (req.query.country) {
-      queryFilter.country = req.query.country;
+      queryFilter.country = req.query.country.toLowerCase();
     }
 
-    // 5. Category Filter (Multi-select)
     if (req.query.category) {
-      // Allows it to handle both single "?category=Business" and multi "?category=Business,Technology"
-      const categoriesArray = req.query.category.split(',');
+      const categoriesArray = req.query.category.split(',').map(c => c.toLowerCase());
       queryFilter.category = { $in: categoriesArray };
     }
 
-    // 6. Content Type Filter (e.g. "News" or "Blog")
     if (req.query.datatype) {
-      queryFilter.datatype = req.query.datatype;
+      queryFilter.datatype = req.query.datatype.toLowerCase();
+    }
+
+    if (req.query.ids) {
+      const idsArray = req.query.ids.split(',');
+      queryFilter.article_id = { $in: idsArray };
     }
 
     const [articles, totalArticles] = await Promise.all([
@@ -60,7 +56,6 @@ router.get('/', async (req, res) => {
       pagination: {
         totalArticles,
         currentPage: page,
-        // Make sure it defaults to 1 if there are no articles
         totalPages: Math.ceil(totalArticles / limit) || 1, 
         limit
       }

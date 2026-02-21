@@ -28,7 +28,12 @@ app.get('/', (req, res) => {
 
 // Route Handlers
 const newsRoutes = require('./Paths/news');
+const authRoutes = require('./Paths/auth');
+const userRoutes = require('./Paths/user');
+
 app.use('/api/news', newsRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 
 app.listen(port, () => {
   console.log(`Current active port: ${port}`);

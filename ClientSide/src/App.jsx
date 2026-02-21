@@ -9,7 +9,7 @@ const App = () => {
   const [error, setError] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(15);
   const [totalPages, setTotalPages] = useState(1);
 
   // 1. Maintain the input states in the Sidebar

@@ -37,7 +37,6 @@ const CardDetails = ({ article, onClose }) => {
 
   return (
     <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden my-8 relative">
-      {/* Optional Close Button if rendered as a modal or overlay */}
       {onClose && (
         <button
           onClick={onClose}
@@ -47,7 +46,6 @@ const CardDetails = ({ article, onClose }) => {
         </button>
       )}
 
-      {/* Header Image */}
       <div className="h-72 sm:h-96 w-full bg-gray-100 relative">
         {image_url ? (
           <img
@@ -77,8 +75,6 @@ const CardDetails = ({ article, onClose }) => {
           </div>
         )}
       </div>
-
-      {/* Article Content */}
       <div className="p-6 sm:p-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
           {title}
@@ -113,7 +109,6 @@ const CardDetails = ({ article, onClose }) => {
           )}
         </div>
 
-        {/* Categories / Tags Section */}
         {category.length > 0 && (
           <div className="mt-10 pt-6 border-t border-gray-200 flex items-start gap-4">
             <FaTags className="text-gray-400 text-xl mt-1" />
@@ -130,7 +125,6 @@ const CardDetails = ({ article, onClose }) => {
           </div>
         )}
 
-        {/* Action Button */}
         <div className="mt-10 flex justify-center">
           <a
             href={link}
