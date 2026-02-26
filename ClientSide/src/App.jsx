@@ -47,7 +47,7 @@ const App = () => {
         });
 
         const response = await fetch(
-          `http://localhost:3000/api/news?${queryParams.toString()}`,
+          `https://news-today-delta.vercel.app/api/news?${queryParams.toString()}`,
         );
 
         if (!response.ok) {

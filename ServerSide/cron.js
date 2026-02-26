@@ -58,6 +58,20 @@ async function fetchAndUpsertNews() {
     }
     console.log(`Cron job complete! Inserted: ${newInserts}, Updated: ${updates}`);
 
+    // Storage Management: Prune old articles to save free tier MongoDB space
+    const totalCount = await Article.countDocuments();
+    if (totalCount > 150) {
+      console.log(`Database has ${totalCount} articles. Pruning down to latest 150...`);
+      
+      // Grab only the specific internal _id of the 150 newest articles based on publish date
+      const latestArticles = await Article.find().sort({ pubDate: -1 }).limit(150).select('_id');
+      const latestIds = latestArticles.map(a => a._id);
+      
+      // Nuke everything else
+      const deleteResult = await Article.deleteMany({ _id: { $nin: latestIds } });
+      console.log(`Successfully deleted ${deleteResult.deletedCount} old articles.`);
+    }
+
   } catch (error) {
     console.error('Error in fetchAndUpsertNews:', error.message);
   }
@@ -67,7 +81,7 @@ const startCronJob = () => {
     console.log('Initializing News Ingestion Pipeline...');
     fetchAndUpsertNews(); 
 
-    cron.schedule('0 */6 * * *', () => {
+    cron.schedule('0 */12 * * *', () => {
       fetchAndUpsertNews();
     });
 };

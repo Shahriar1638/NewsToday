@@ -25,7 +25,7 @@ const Bookmarks = () => {
         setLoading(true);
         const idsParam = user.bookmarks.join(",");
         const response = await fetch(
-          `http://localhost:3000/api/news?page=${page}&limit=12&ids=${idsParam}`,
+          `https://news-today-delta.vercel.app/api/news?page=${page}&limit=12&ids=${idsParam}`,
         );
 
         if (!response.ok) {

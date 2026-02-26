@@ -40,11 +40,14 @@ const Card = ({ article, onClick }) => {
     if (!user) return alert("Please log in to bookmark articles.");
 
     try {
-      const res = await fetch("http://localhost:3000/api/user/bookmark", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: user.email, article_id }),
-      });
+      const res = await fetch(
+        "https://news-today-delta.vercel.app/api/user/bookmark",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: user.email, article_id }),
+        },
+      );
       const data = await res.json();
       if (res.ok) {
         loginUser(data.user);
@@ -59,11 +62,14 @@ const Card = ({ article, onClick }) => {
     if (!user) return alert("Please log in to favourite articles.");
 
     try {
-      const res = await fetch("http://localhost:3000/api/user/favourite", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: user.email, article_id }),
-      });
+      const res = await fetch(
+        "https://news-today-delta.vercel.app/api/user/favourite",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: user.email, article_id }),
+        },
+      );
       const data = await res.json();
       if (res.ok) {
         loginUser(data.user);

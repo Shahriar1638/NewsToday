@@ -47,11 +47,14 @@ const Register = () => {
 
       const authPayload = { ...formData, profile_picture };
 
-      const response = await fetch("http://localhost:3000/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(authPayload),
-      });
+      const response = await fetch(
+        "https://news-today-delta.vercel.app/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(authPayload),
+        },
+      );
 
       const data = await response.json();
 
