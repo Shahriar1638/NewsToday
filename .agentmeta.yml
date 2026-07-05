@@ -1,0 +1,26 @@
+project_name: NewsToday
+team:
+  - name: Shahriar
+    role: lead
+    email: aorus1080@gmail.com
+    notify_on:
+      - milestone
+      - risk
+      - new_project
+      - feature
+      - bugfix
+      - security
+
+notify_channels:
+  email_digest: false
+
+significance:
+  main_branch_only: false
+  min_files_changed: 1
+
+always_notify:
+  - ".env*"
+  - "migrations/*"
+  - "docker-compose*"
+  - "package.json"
+  - "requirements.txt"
