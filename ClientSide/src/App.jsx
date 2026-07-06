@@ -77,7 +77,7 @@ const App = () => {
       <header className="bg-white dark:bg-gray-900 shadow relative z-10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-            News <span className="text-blue-800 dark:text-blue-400">Today</span>
+            News <span className="text-indigo-800 dark:text-indigo-400">Today</span>
           </h1>
 
           <div className="flex items-center gap-6">
@@ -102,8 +102,8 @@ const App = () => {
                 <option value={45}>45</option>
               </select>
             </div>
-            <div className="text-md font-medium px-4 py-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-md shadow-sm">
-              <span className="text-blue-800 dark:text-blue-400 font-bold">{articles.length}</span>{" "}
+            <div className="text-md font-medium px-4 py-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 rounded-md shadow-sm">
+              <span className="text-indigo-800 dark:text-indigo-400 font-bold">{articles.length}</span>{" "}
               Results Loaded
             </div>
           </div>
