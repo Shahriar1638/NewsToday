@@ -73,18 +73,18 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800 relative">
-      <header className="bg-white shadow relative z-10">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-200 relative transition-colors duration-300">
+      <header className="bg-white dark:bg-gray-900 shadow relative z-10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <h1 className="text-5xl font-bold tracking-tight text-gray-900">
-            News <span className="text-blue-800">Today</span>
+          <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+            News <span className="text-blue-800 dark:text-blue-400">Today</span>
           </h1>
 
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <label
                 htmlFor="limit-select"
-                className="text-sm font-semibold text-gray-600"
+                className="text-sm font-semibold text-gray-600 dark:text-gray-400"
               >
                 Cards per page:
               </label>
@@ -95,15 +95,15 @@ const App = () => {
                   setLimit(Number(e.target.value));
                   setPage(1);
                 }}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 cursor-pointer shadow-sm transition-colors"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 cursor-pointer shadow-sm transition-colors"
               >
                 <option value={15}>15</option>
                 <option value={30}>30</option>
                 <option value={45}>45</option>
               </select>
             </div>
-            <div className="text-md font-medium px-4 py-2 bg-blue-50 border border-blue-100 rounded-md shadow-sm">
-              <span className="text-blue-800 font-bold">{articles.length}</span>{" "}
+            <div className="text-md font-medium px-4 py-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-md shadow-sm">
+              <span className="text-blue-800 dark:text-blue-400 font-bold">{articles.length}</span>{" "}
               Results Loaded
             </div>
           </div>
@@ -129,8 +129,8 @@ const App = () => {
           )}
 
           {error && (
-            <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-8">
-              <p className="text-red-700">Error: {error}</p>
+            <div className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 mb-8">
+              <p className="text-red-700 dark:text-red-400">Error: {error}</p>
             </div>
           )}
 
@@ -146,7 +146,7 @@ const App = () => {
                     />
                   ))
                 ) : (
-                  <div className="col-span-full text-center py-10 text-gray-500">
+                  <div className="col-span-full text-center py-10 text-gray-500 dark:text-gray-400">
                     No articles found in the database.
                   </div>
                 )}
@@ -157,12 +157,12 @@ const App = () => {
                   <button
                     onClick={() => setPage((old) => Math.max(old - 1, 1))}
                     disabled={page === 1}
-                    className="px-6 py-2 bg-white border border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-colors"
+                    className="px-6 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-md font-medium hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-colors"
                   >
                     Previous
                   </button>
-                  <span className="text-gray-600 font-medium">
-                    Page <span className="text-blue-600">{page}</span> of{" "}
+                  <span className="text-gray-600 dark:text-gray-400 font-medium">
+                    Page <span className="text-blue-600 dark:text-blue-400">{page}</span> of{" "}
                     {totalPages}
                   </span>
                   <button
@@ -172,7 +172,7 @@ const App = () => {
                       )
                     }
                     disabled={page === totalPages}
-                    className="px-6 py-2 bg-white border border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-colors"
+                    className="px-6 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-md font-medium hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-colors"
                   >
                     Next
                   </button>

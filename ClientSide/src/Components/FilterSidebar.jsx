@@ -44,9 +44,9 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 sticky top-6">
+    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-5 sticky top-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
           <FaFilter className="text-blue-600 text-sm" />
           Analytics Filter
         </h2>
@@ -60,7 +60,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
 
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Date Range
           </label>
           <div className="flex flex-col gap-2">
@@ -70,9 +70,9 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
               onChange={(e) =>
                 setFilters({ ...filters, startDate: e.target.value })
               }
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2"
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2"
             />
-            <span className="text-center text-xs text-gray-400 font-medium">
+            <span className="text-center text-xs text-gray-400 dark:text-gray-500 font-medium">
               TO
             </span>
             <input
@@ -81,18 +81,18 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
               onChange={(e) =>
                 setFilters({ ...filters, endDate: e.target.value })
               }
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2"
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Author
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <FaSearch className="w-3 h-3 text-gray-400" />
+              <FaSearch className="w-3 h-3 text-gray-400 dark:text-gray-500" />
             </div>
             <input
               type="text"
@@ -101,14 +101,14 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
               onChange={(e) =>
                 setFilters({ ...filters, author: e.target.value })
               }
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-8 p-2"
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-8 p-2"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Language
             </label>
             <select
@@ -116,7 +116,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
               onChange={(e) =>
                 setFilters({ ...filters, language: e.target.value })
               }
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 uppercase"
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 uppercase"
             >
               <option value="">Any</option>
               {languages.map((lang) => (
@@ -127,7 +127,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Country
             </label>
             <select
@@ -135,7 +135,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
               onChange={(e) =>
                 setFilters({ ...filters, country: e.target.value })
               }
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 uppercase"
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 uppercase"
             >
               <option value="">Any</option>
               {countries.map((code) => (
@@ -148,7 +148,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
             Categories
           </label>
           <div className="flex flex-wrap gap-2">
@@ -161,7 +161,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
                   className={`px-3 py-1 rounded-full text-xs font-semibold cursor-pointer transition-colors border ${
                     isActive
                       ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-gray-50 text-gray-600 border-gray-300 hover:bg-gray-200"
+                      : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700"
                   }`}
                 >
                   {cat}
@@ -172,7 +172,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Content Type
           </label>
           <select
@@ -180,7 +180,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
             onChange={(e) =>
               setFilters({ ...filters, datatype: e.target.value })
             }
-            className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2"
+            className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2"
           >
             <option value="">All Types</option>
             {datatypes.map((type) => (
@@ -192,7 +192,7 @@ const FilterSidebar = ({ filters, setFilters, applyFilters }) => {
         </div>
         <button
           onClick={applyFilters}
-          className="w-full bg-gray-900 hover:bg-black text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 mt-4"
+          className="w-full bg-gray-900 dark:bg-blue-600 hover:bg-black dark:hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 mt-4"
         >
           <FaFilter /> Apply Filters
         </button>

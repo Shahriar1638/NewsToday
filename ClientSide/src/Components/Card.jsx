@@ -82,9 +82,9 @@ const Card = ({ article, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="flex flex-col overflow-hidden bg-white border rounded-xl shadow-sm h-full transition-transform hover:scale-[1.02] hover:shadow-md cursor-pointer group relative"
+      className="flex flex-col overflow-hidden bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-xl shadow-sm h-full transition-transform hover:scale-[1.02] hover:shadow-md cursor-pointer group relative"
     >
-      <div className="h-48 bg-gray-200 overflow-hidden relative">
+      <div className="h-48 bg-gray-200 dark:bg-gray-800 overflow-hidden relative">
         {image_url ? (
           <img
             src={image_url}
@@ -96,7 +96,7 @@ const Card = ({ article, onClick }) => {
             }}
           />
         ) : (
-          <div className="flex items-center justify-center w-full h-full text-gray-400 bg-gray-100">
+          <div className="flex items-center justify-center w-full h-full text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800">
             No Image
           </div>
         )}
@@ -134,15 +134,15 @@ const Card = ({ article, onClick }) => {
 
       <div className="p-5 flex flex-col flex-grow">
         <h3
-          className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors"
+          className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
           title={title}
         >
           {title}
         </h3>
-        <p className="text-sm text-gray-600 mb-4 flex-grow line-clamp-3">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow line-clamp-3">
           {description}
         </p>
-        <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+        <div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
           <div className="flex items-center max-w-[60%] gap-1">
             <FaUserEdit className="text-gray-400 text-sm flex-shrink-0" />
             <span className="truncate" title={authorName}>
@@ -156,7 +156,7 @@ const Card = ({ article, onClick }) => {
           </div>
         </div>
 
-        <button className="mt-4 block w-full text-center bg-gray-50 hover:bg-gray-100 text-blue-600 text-sm font-semibold py-2 rounded border border-gray-200 transition-colors">
+        <button className="mt-4 block w-full text-center bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400 text-sm font-semibold py-2 rounded border border-gray-200 dark:border-gray-700 transition-colors">
           View Details
         </button>
       </div>
